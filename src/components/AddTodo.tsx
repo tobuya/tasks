@@ -1,21 +1,25 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { toast } from 'react-hot-toast'
-import { useTodo } from '../context'
-import { Input } from './Input'
+import React, { useEffect, useRef, useState } from 'react';
+import { toast } from 'react-hot-toast';
+import { useTodo } from '../context';
+import { Input } from './Input';
 
 export const AddTodo = () => {
-  const [input, setInput] = useState<string>("")
-  const inputRef = useRef<HTMLInputElement>(null)
+  const [input, setInput] = useState<string>("");
+  const [todos, setTodos] = useState<string[]>([]);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if(inputRef.current) {
       inputRef.current.focus()
     }
-  }, [])
+  }, []);
 
   const handleSubmission = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Form had been submitted")
+    if(input.trim() !== '') {
+      setTodos([...todos, input]);
+      setInput('');
+    }
   }
 
   return (
@@ -38,4 +42,4 @@ export const AddTodo = () => {
       </div>
     </form>
   )
-}
+};
