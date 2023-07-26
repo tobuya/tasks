@@ -52,7 +52,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
- [View live](#)
+ [View live](https://tobuya.github.io/tasks/)
 
 ## 📘 Getting Started  <a name="getting-started"></a>
 
