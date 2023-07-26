@@ -19,7 +19,7 @@ export interface Todo {
 export const TodoContext = createContext<TodoContextProps|undefined>(undefined);
 
 export const TodoProvider = (props: { children: React.ReactNode }) => {
-  const [todos, setTodos] = useLocalStorage<Todo[]>('todos', [])
+  const [todos, setTodos] = useLocalStorage<Todo[]>('todos', []);
 
   const addTodo = (text: string) => {
     const newTodo: Todo = {
@@ -33,7 +33,7 @@ export const TodoProvider = (props: { children: React.ReactNode }) => {
 
   const deleteTodo = (id: string) => {
     setTodos(prevTodos => prevTodos.filter(todo  => todo.id !== id))
-  }
+  };
 
   const editTodo = (id: string, text: string) => {
     setTodos(prevTodos => {
@@ -44,7 +44,7 @@ export const TodoProvider = (props: { children: React.ReactNode }) => {
         return todo
       })
     })
-  }
+  };
 
   const updateTodoStatus = (id: string) => {
     setTodos(prevTodos => {
@@ -58,7 +58,7 @@ export const TodoProvider = (props: { children: React.ReactNode }) => {
         return todo
       })
     })
-  }
+  };
 
   const value: TodoContextProps = {
     todos,
@@ -72,5 +72,5 @@ export const TodoProvider = (props: { children: React.ReactNode }) => {
     <TodoContext.Provider value={value}>
       {props.children}
     </TodoContext.Provider>
-  )
+  );
 };

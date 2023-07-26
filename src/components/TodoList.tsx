@@ -23,5 +23,5 @@ export const TodoList = () => {
         <TodoItem todo={todo} key={todo.id} />
       ))}
     </motion.ul>
-  )
-}
+  );
+};

@@ -11,30 +11,30 @@ import cn from 'classnames';
 import { motion } from 'framer-motion';
 
 export const TodoItem = (props: { todo: Todo }) => {
-  const { todo } = props
+  const { todo } = props;
 
 
-  const [editingTodoText, setEditingTodoText] = useState<string>('')
-  const [editingTodoId, setEditingTodoId] = useState<string | null>(null)
+  const [editingTodoText, setEditingTodoText] = useState<string>('');
+  const [editingTodoId, setEditingTodoId] = useState<string | null>(null);
 
-  const { deleteTodo, editTodo, updateTodoStatus } = useTodo()
+  const { deleteTodo, editTodo, updateTodoStatus } = useTodo();
 
-  const editInputRef = useRef<HTMLInputElement>(null)
+  const editInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (editingTodoId !== null && editInputRef.current) {
       editInputRef.current.focus()
     }
-  }, [editingTodoId])
+  }, [editingTodoId]);
 
   const handleEdit = (todoId: string, todoText: string) => {
-    setEditingTodoId(todoId)
-    setEditingTodoText(todoText)
+    setEditingTodoId(todoId);
+    setEditingTodoText(todoText);
 
     if (editInputRef.current) {
       editInputRef.current.focus()
     }
-  }
+  };
 
   const handleUpdate = (todoId: string) => {
     if (editingTodoText.trim() !== '') {
@@ -45,17 +45,17 @@ export const TodoItem = (props: { todo: Todo }) => {
     } else {
       toast.error('Todo field cannot be empty!')
     }
-  }
+  };
 
   const handleDelete = (todoId: string) => {
     deleteTodo(todoId)
     toast.success('Todo deleted successfully!')
-  }
+  };
 
   const handleStatusUpdate = (todoId: string) => {
     updateTodoStatus(todoId)
     toast.success('Todo status updated successfully!')
-  }
+  };
 
   return (
     <motion.li
@@ -126,5 +126,5 @@ export const TodoItem = (props: { todo: Todo }) => {
         </div>
       )}
     </motion.li>
-  )
+  );
 };

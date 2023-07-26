@@ -1,5 +1,5 @@
-import { InputHTMLAttributes, forwardRef } from 'react'
-import cn from 'classnames'
+import { InputHTMLAttributes, forwardRef } from 'react';
+import cn from 'classnames';
 
 export const Input = forwardRef<
   HTMLInputElement,
@@ -14,6 +14,6 @@ export const Input = forwardRef<
           className,
         )}
       />
-    )
-  })
+    );
+  });
   

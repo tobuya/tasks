@@ -15,7 +15,7 @@ export const AddTodo = () => {
   }, []);
 
   const handleSubmission = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     if(input.trim() !== '') {
       addTodo(input);
       setInput('');
@@ -23,7 +23,7 @@ export const AddTodo = () => {
     }else {
       toast.error('Task field cannot be empty')
     }
-  }
+  };
 
   return (
     <form onSubmit={handleSubmission}>

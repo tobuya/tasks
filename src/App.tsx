@@ -1,5 +1,5 @@
-import { Toaster } from 'react-hot-toast'
-import { TodoList, AddTodo } from './components'
+import { Toaster } from 'react-hot-toast';
+import { TodoList, AddTodo } from './components';
 
 function App() {
   return (
@@ -11,4 +11,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
